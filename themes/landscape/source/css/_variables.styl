@@ -1,0 +1,85 @@
+support-for-ie = false
+vendor-prefixes = webkit moz ms official
+
+color-primary = #2c3e50
+color-accent = #3498db
+color-accent-hover = #2980b9
+color-default = #333333
+color-grey = #888888
+color-border = #e8e8e8
+color-background = #f5f6f7
+color-card-background = #ffffff
+color-footer-background = #2c3e50
+color-code-background = #282c34
+color-sidebar-text = #666666
+color-widget-background = #ffffff
+color-widget-border = #e8e8e8
+color-link = color-accent
+color-mobile-nav-background = #1a252f
+color-twitter = #00aced
+color-facebook = #3b5998
+color-pinterest = #cb2027
+color-linkedin = #0077B5
+
+font-sans = "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif
+font-serif = "Noto Serif SC", "Source Han Serif SC", "SimSun", "Songti SC", Georgia, serif
+font-mono = "JetBrains Mono", "Fira Code", "Source Code Pro", "Cascadia Code", Consolas, Monaco, Menlo, "Courier New", monospace
+font-icon = ForkAwesome
+font-size = 16px
+font-size-sm = 0.875em
+font-size-xs = 0.75em
+font-size-lg = 1.125em
+font-size-xl = 1.25em
+font-size-h1 = 2em
+font-size-h2 = 1.6em
+font-size-h3 = 1.3em
+font-size-h4 = 1.15em
+font-size-h5 = 1em
+font-size-h6 = 0.95em
+line-height = 1.8em
+line-height-title = 1.3em
+line-height-cjk = 2.0
+line-height-heading = 1.3
+line-height-code = 1.6
+letter-spacing-heading = 0.02em
+letter-spacing-nav = 1px
+
+spacing-unit = 4px
+spacing-xs = spacing-unit * 2
+spacing-sm = spacing-unit * 3
+spacing-md = spacing-unit * 4
+spacing-lg = spacing-unit * 6
+spacing-xl = spacing-unit * 8
+spacing-xxl = spacing-unit * 12
+
+radius-sm = 4px
+radius-md = 8px
+radius-lg = 12px
+shadow-card = 0 2px 12px rgba(0, 0, 0, 0.08)
+shadow-card-hover = 0 4px 20px rgba(0, 0, 0, 0.12)
+
+logo-size = 40px
+subtitle-size = 16px
+banner-height = 300px
+banner-url = hexo-config("banner")
+
+sidebar = hexo-config("sidebar")
+
+block-margin = 40px
+article-padding = 24px
+mobile-nav-width = 280px
+main-column = 9
+sidebar-column = 3
+
+if sidebar and sidebar isnt bottom
+  _sidebar-column = sidebar-column
+else
+  _sidebar-column = 0
+
+column-width = 80px
+gutter-width = 20px
+columns = main-column + _sidebar-column
+
+mq-mobile = "screen and (max-width: 767px)"
+mq-tablet = "screen and (min-width: 768px) and (max-width: 1023px)"
+mq-normal = "screen and (min-width: 1024px)"

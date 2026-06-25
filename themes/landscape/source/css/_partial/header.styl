@@ -1,0 +1,186 @@
+#header
+  position: relative
+
+#banner-section
+  position: relative
+  height: banner-height
+  overflow: hidden
+  &:before, &:after
+    content: ""
+    position: absolute
+    left: 0
+    right: 0
+    height: 40px
+    z-index: 1
+  &:before
+    top: 0
+    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
+  &:after
+    bottom: 0
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+
+#header-outer
+  height: 100%
+  position: relative
+
+#banner
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: url(banner-url) center #000
+  background-size: cover
+  z-index: -1
+
+#header-title
+  text-align: center
+  height: logo-size
+  position: absolute
+  top: 50%
+  left: 0
+  margin-top: logo-size * -0.5
+
+$logo-text
+  text-decoration: none
+  color: #fff
+  font-weight: 300
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
+
+#logo
+  @extend $logo-text
+  font-size: logo-size
+  line-height: logo-size
+  letter-spacing: 2px
+
+#subtitle
+  @extend $logo-text
+  font-size: subtitle-size
+  line-height: subtitle-size
+  letter-spacing: 1px
+
+#subtitle-wrap
+  margin-top: subtitle-size
+
+#main-navbar
+  position: sticky
+  top: 0
+  z-index: 100
+  background: color-primary
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+  .inner
+    overflow: hidden
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+$nav-link
+  color: rgba(255, 255, 255, 0.8)
+  text-decoration: none
+  transition: all 0.2s ease
+  display: block
+  padding: 12px 15px
+  position: relative
+  &:hover
+    color: #fff
+
+.nav-icon
+  @extend $nav-link
+  text-align: center
+  font-size: font-size
+  width: font-size
+  height: font-size
+  padding: 12px 15px
+  cursor: pointer
+
+.main-nav-link
+  @extend $nav-link
+  font-weight: 400
+  letter-spacing: 1px
+  &::after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 50%
+    width: 0
+    height: 2px
+    background: #fff
+    transition: all 0.2s ease
+    transform: translateX(-50%)
+  &:hover::after
+    width: 80%
+  @media mq-mobile
+    display: none
+
+#main-nav-toggle
+  display: none
+  @media mq-mobile
+    display: block
+
+#sub-nav
+  display: flex
+  align-items: center
+  margin-right: -15px
+
+#search-form-wrap
+  position: absolute
+  top: 12px
+  width: 150px
+  height: 30px
+  right: -150px
+  opacity: 0
+  transition: 0.2s ease-out
+  &.on
+    opacity: 1
+    right: 0
+  @media mq-mobile
+    width: 100%
+    right: -100%
+
+.search-form
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  background: #fff
+  padding: 5px 15px
+  border-radius: radius-md
+  box-shadow: shadow-card
+
+.search-form-input
+  border: none
+  background: none
+  color: color-default
+  width: 100%
+  font: 13px font-sans
+  outline: none
+  &::-webkit-search-results-decoration
+  &::-webkit-search-cancel-button
+    -webkit-appearance: none
+
+.search-form-submit
+  position: absolute
+  top: 50%
+  right: 10px
+  margin-top: -7px
+  font: 13px font-icon
+  border: none
+  background: none
+  color: #bbb
+  cursor: pointer
+  &:hover, &:focus
+    color: #777
+
+#theme-toggle
+  cursor: pointer
+  transition: all 0.2s ease
+  .fa-sun
+    display: none
+  .fa-moon
+    display: inline
+
+[data-theme="dark"] #theme-toggle
+  .fa-sun
+    display: inline
+  .fa-moon
+    display: none

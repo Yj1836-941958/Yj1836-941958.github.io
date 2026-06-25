@@ -1,0 +1,189 @@
+highlight-background = #282c34
+highlight-current-line = #2c313a
+highlight-selection = #3e4451
+highlight-foreground = #abb2bf
+highlight-comment = #5c6370
+highlight-red = #e06c75
+highlight-orange = #d19a66
+highlight-yellow = #e5c07b
+highlight-green = #98c379
+highlight-aqua = #56b6c2
+highlight-blue = #61afef
+highlight-purple = #c678dd
+
+$code-block
+  background: highlight-background
+  margin: spacing-lg 0
+  padding: 20px
+  border-radius: radius-md
+  border: none
+  overflow: auto
+  color: highlight-foreground
+  line-height: 1.6
+  font-size: 14px
+
+$line-numbers
+  color: #4b5263
+  font-size: 0.85em
+
+.article-entry
+  pre, code
+    font-family: font-mono
+  code
+    background: var(--color-code-inline-bg)
+    padding: 2px 6px
+    border-radius: radius-sm
+    font-size: 0.9em
+    color: var(--color-code-inline-text)
+  pre
+    @extend $code-block
+    code
+      background: none
+      padding: 0
+      color: highlight-foreground
+      font-size: inherit
+  .highlight
+    @extend $code-block
+    overflow-x: auto
+    &::-webkit-scrollbar
+      height: 6px
+    &::-webkit-scrollbar-track
+      background: highlight-background
+    &::-webkit-scrollbar-thumb
+      background: #4b5263
+      border-radius: 3px
+    &::-webkit-scrollbar-thumb:hover
+      background: #5c6370
+    pre
+      border: none
+      margin: 0
+      padding: 0
+    table
+      margin: 0
+      width: auto
+    td
+      border: none
+      padding: 0
+    figcaption
+      clearfix()
+      font-size: 0.85em
+      color: highlight-comment
+      line-height: 1em
+      margin-bottom: 1em
+      a
+        float: right
+    .gutter
+      -moz-user-select: none
+      -ms-user-select: none
+      -webkit-user-select: none
+      user-select: none
+      border-right: 1px solid #3e4451
+      pre
+        @extend $line-numbers
+        text-align: right
+        padding-right: 16px
+        margin-right: 16px
+    .line
+      height: 1.6em
+    .line.marked
+      background: highlight-selection
+  .gist
+    margin: spacing-lg 0
+    border-style: solid
+    border-color: color-border
+    border-width: 1px 0
+    border-radius: radius-md
+    background: highlight-background
+    padding: 15px 20px
+    .gist-file
+      border: none
+      font-family: font-mono
+      margin: 0
+      .gist-data
+        background: none
+        border: none
+        .line-numbers
+          @extend $line-numbers
+          background: none
+          border: none
+          padding: 0 20px 0 0
+        .line-data
+          padding: 0 !important
+      .highlight
+        margin: 0
+        padding: 0
+        border: none
+      .gist-meta
+        background: highlight-background
+        color: highlight-comment
+        font: 0.85em font-sans
+        padding: 0
+        margin-top: 1em
+        a
+          color: color-link
+          font-weight: normal
+          &:hover
+            text-decoration: underline
+
+pre
+  .comment
+  .title
+    color: highlight-comment
+  .variable
+  .attribute
+  .tag
+  .regexp
+  .ruby .constant
+  .xml .tag .title
+  .xml .pi
+  .xml .doctype
+  .html .doctype
+  .css .id
+  .css .class
+  .css .pseudo
+    color: highlight-red
+  .number
+  .preprocessor
+  .built_in
+  .literal
+  .params
+  .constant
+    color: highlight-orange
+  .class
+  .ruby .class .title
+  .css .rules .attribute
+    color: highlight-green
+  .string
+  .value
+  .inheritance
+  .header
+  .ruby .symbol
+  .xml .cdata
+    color: highlight-green
+  .css .hexcolor
+    color: highlight-aqua
+  .function
+  .python .decorator
+  .python .title
+  .ruby .function .title
+  .ruby .title .keyword
+  .perl .sub
+  .javascript .title
+  .coffeescript .title
+    color: highlight-blue
+  .keyword
+  .javascript .function
+    color: highlight-purple
+
+[data-theme="dark"]
+  .article-entry .highlight
+    background: var(--color-code-block-bg)
+    box-shadow: none
+  .article-entry pre
+    background: var(--color-code-block-bg)
+  .code-copy-btn
+    background: rgba(255, 255, 255, 0.1)
+    color: var(--color-text-secondary)
+    &:hover
+      background: rgba(255, 255, 255, 0.2)
+      color: var(--color-text-primary)

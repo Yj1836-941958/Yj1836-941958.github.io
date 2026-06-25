@@ -1,0 +1,64 @@
+#sidebar
+  @media mq-normal
+    column(sidebar-column)
+
+.widget-wrap
+  margin: spacing-lg 0
+
+.widget-title
+  font-size: 0.9em
+  font-weight: 600
+  color: color-primary
+  text-transform: none
+  letter-spacing: 0
+  margin-bottom: spacing-sm
+  padding-bottom: spacing-xs
+  border-bottom: 2px solid color-accent
+
+.widget
+  color: color-sidebar-text
+  text-shadow: none
+  background: color-widget-background
+  box-shadow: shadow-card
+  border: 1px solid color-widget-border
+  border-radius: radius-md
+  padding: spacing-md
+  a
+    color: color-link
+    text-decoration: none
+    transition: color 0.2s ease
+    &:hover
+      color: color-accent-hover
+      text-decoration: none
+  ul, ol, dl
+    ul, ol, dl
+      margin-left: 15px
+      list-style: disc
+
+[data-theme="dark"]
+  .widget
+    background: var(--color-surface-elevated)
+    border-color: var(--color-border-default)
+    color: var(--color-text-primary)
+    a
+      color: var(--color-text-link)
+      &:hover
+        color: var(--color-text-link-hover)
+
+  .widget-title
+    color: var(--color-text-heading)
+    border-bottom-color: var(--color-accent-primary)
+
+  .tagcloud a
+    background: rgba(93, 173, 226, 0.1)
+    color: var(--color-accent-primary)
+    &:hover
+      background: var(--color-accent-primary)
+      color: var(--color-brand-primary-text)
+
+  .widget.recent_posts li
+    border-bottom-color: var(--color-border-default)
+    a
+      color: var(--color-text-primary)
+      &:hover
+        color: var(--color-text-link)

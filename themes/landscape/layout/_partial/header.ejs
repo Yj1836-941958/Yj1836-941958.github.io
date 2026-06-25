@@ -1,0 +1,40 @@
+<header id="header">
+  <div id="banner-section">
+    <div id="banner"></div>
+    <div id="header-outer" class="outer">
+      <div id="header-title" class="inner">
+        <h1 id="logo-wrap">
+          <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+        </h1>
+        <% if (theme.subtitle || config.subtitle){ %>
+          <h2 id="subtitle-wrap">
+            <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle || config.subtitle %></a>
+          </h2>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <nav id="main-navbar">
+    <div class="inner">
+      <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+      <% for (var i in theme.menu){ %>
+        <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+      <% } %>
+      <nav id="sub-nav">
+        <a id="theme-toggle" class="nav-icon" title="切换暗色模式" role="button" aria-label="切换暗色模式"><span class="fa fa-moon"></span><span class="fa fa-sun"></span></a>
+        <% if (theme.links) { %>
+          <% for (const i in theme.links) {%>
+            <a class="nav-icon" href="<%- url_for(theme.links[i]) %>"><span class="fa fa-<%= i %>"></span></a>
+          <% } %>
+        <% } %>
+        <% if (theme.rss){ %>
+          <a class="nav-icon" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"><span class="fa fa-rss"></span></a>
+        <% } %>
+        <a class="nav-icon nav-search-btn" title="<%= __('search') %>"><span class="fa fa-search"></span></a>
+      </nav>
+    </div>
+    <div id="search-form-wrap">
+      <%- search_form({button: '&#xF002;', text: __('search')}) %>
+    </div>
+  </nav>
+</header>

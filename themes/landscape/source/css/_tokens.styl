@@ -1,0 +1,113 @@
+:root
+  --color-blue-50: #ebf5fb
+  --color-blue-100: #d6eaf8
+  --color-blue-200: #aed6f1
+  --color-blue-300: #85c1e9
+  --color-blue-400: #5dade2
+  --color-blue-500: #3498db
+  --color-blue-600: #2e86c1
+  --color-blue-700: #2980b9
+  --color-blue-800: #2471a3
+  --color-blue-900: #1a5276
+  --color-gray-50: #f8f9fa
+  --color-gray-100: #f5f6f7
+  --color-gray-200: #ebedef
+  --color-gray-300: #d5d8dc
+  --color-gray-400: #abb2b9
+  --color-gray-500: #888888
+  --color-gray-600: #666666
+  --color-gray-700: #555555
+  --color-gray-800: #333333
+  --color-gray-900: #2c3e50
+  --color-gray-950: #1a252f
+  --color-dark-50: #2d3748
+  --color-dark-100: #1e2a3a
+  --color-dark-200: #1a2332
+  --color-dark-300: #151d28
+  --color-dark-400: #111820
+  --color-dark-500: #0d1117
+  --color-text-primary: var(--color-gray-800)
+  --color-text-secondary: var(--color-gray-500)
+  --color-text-tertiary: var(--color-gray-400)
+  --color-text-heading: var(--color-gray-900)
+  --color-text-link: var(--color-blue-500)
+  --color-text-link-hover: var(--color-blue-700)
+  --color-surface-base: var(--color-gray-100)
+  --color-surface-elevated: #ffffff
+  --color-surface-sunken: var(--color-gray-50)
+  --color-border-default: var(--color-gray-200)
+  --color-border-emphasis: var(--color-blue-500)
+  --color-accent-primary: var(--color-blue-500)
+  --color-accent-primary-hover: var(--color-blue-700)
+  --color-brand-primary: var(--color-gray-900)
+  --color-brand-primary-text: #ffffff
+  --color-code-inline-bg: rgba(52, 152, 219, 0.06)
+  --color-code-inline-text: var(--color-gray-900)
+  --color-code-block-bg: #282c34
+  --color-blockquote-bg: rgba(52, 152, 219, 0.06)
+  --color-blockquote-border: var(--color-blue-500)
+  --color-blockquote-text: #555555
+  --color-table-header-bg: var(--color-gray-50)
+  --color-table-stripe-bg: #fafbfc
+  --color-table-hover-bg: rgba(52, 152, 219, 0.04)
+  --color-bold-text: var(--color-gray-900)
+  --img-brightness: 1
+  --cjk-text-indent: 2em
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
+
+[data-theme="dark"]
+  --color-text-primary: #d1d5db
+  --color-text-secondary: #9ca3af
+  --color-text-tertiary: #6b7280
+  --color-text-heading: #f3f4f6
+  --color-text-link: var(--color-blue-400)
+  --color-text-link-hover: var(--color-blue-300)
+  --color-surface-base: var(--color-dark-500)
+  --color-surface-elevated: var(--color-dark-50)
+  --color-surface-sunken: var(--color-dark-300)
+  --color-border-default: var(--color-dark-50)
+  --color-border-emphasis: var(--color-blue-400)
+  --color-accent-primary: var(--color-blue-400)
+  --color-accent-primary-hover: var(--color-blue-300)
+  --color-brand-primary: var(--color-dark-100)
+  --color-brand-primary-text: #f3f4f6
+  --color-code-inline-bg: rgba(93, 173, 226, 0.12)
+  --color-code-inline-text: var(--color-blue-300)
+  --color-code-block-bg: #1a2332
+  --color-blockquote-bg: rgba(93, 173, 226, 0.08)
+  --color-blockquote-border: var(--color-blue-400)
+  --color-blockquote-text: #9ca3af
+  --color-table-header-bg: var(--color-dark-100)
+  --color-table-stripe-bg: var(--color-dark-200)
+  --color-table-hover-bg: rgba(93, 173, 226, 0.06)
+  --color-bold-text: var(--color-blue-300)
+  --img-brightness: 0.9
+
+@media (prefers-color-scheme: dark)
+  :root:not([data-theme="light"])
+    --color-text-primary: #d1d5db
+    --color-text-secondary: #9ca3af
+    --color-text-tertiary: #6b7280
+    --color-text-heading: #f3f4f6
+    --color-text-link: var(--color-blue-400)
+    --color-text-link-hover: var(--color-blue-300)
+    --color-surface-base: var(--color-dark-500)
+    --color-surface-elevated: var(--color-dark-50)
+    --color-surface-sunken: var(--color-dark-300)
+    --color-border-default: var(--color-dark-50)
+    --color-border-emphasis: var(--color-blue-400)
+    --color-accent-primary: var(--color-blue-400)
+    --color-accent-primary-hover: var(--color-blue-300)
+    --color-brand-primary: var(--color-dark-100)
+    --color-brand-primary-text: #f3f4f6
+    --color-code-inline-bg: rgba(93, 173, 226, 0.12)
+    --color-code-inline-text: var(--color-blue-300)
+    --color-code-block-bg: #1a2332
+    --color-blockquote-bg: rgba(93, 173, 226, 0.08)
+    --color-blockquote-border: var(--color-blue-400)
+    --color-blockquote-text: #9ca3af
+    --color-table-header-bg: var(--color-dark-100)
+    --color-table-stripe-bg: var(--color-dark-200)
+    --color-table-hover-bg: rgba(93, 173, 226, 0.06)
+    --color-bold-text: var(--color-blue-300)
+    --img-brightness: 0.9

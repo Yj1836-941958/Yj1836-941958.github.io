@@ -1,0 +1,26 @@
+#footer
+  background: color-footer-background
+  padding: spacing-xl 0
+  border-top: none
+  color: rgba(255, 255, 255, 0.7)
+  a
+    color: rgba(255, 255, 255, 0.9)
+    text-decoration: none
+    transition: color 0.2s ease
+    &:hover
+      color: #fff
+      text-decoration: none
+
+#footer-info
+  text-align: center
+  line-height: 1.8
+  font-size: 0.9em
+
+[data-theme="dark"]
+  #footer
+    background: var(--color-dark-300)
+    color: var(--color-text-secondary)
+    a
+      color: var(--color-text-link)
+      &:hover
+        color: var(--color-text-link-hover)

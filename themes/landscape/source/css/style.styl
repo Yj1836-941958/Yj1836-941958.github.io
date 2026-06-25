@@ -1,0 +1,457 @@
+@import "nib"
+@import "_variables"
+@import "_tokens"
+@import "_util/mixin"
+@import "_util/grid"
+
+global-reset()
+
+input, button
+  margin: 0
+  padding: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+html, body, #container
+  height: 100%
+
+body
+  background: color-background
+  font: font-size font-sans
+  -webkit-text-size-adjust: 100%
+
+.outer
+  clearfix()
+  max-width: (column-width + gutter-width) * columns + gutter-width
+  margin: 0 auto
+  padding: 0 gutter-width
+
+.inner
+  column(columns)
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+#container
+  position: relative
+
+.mobile-nav-on
+  overflow: hidden
+
+#wrap
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  transition: 0.2s ease-out
+  z-index: 1
+  background: color-background
+  .mobile-nav-on &
+    left: mobile-nav-width
+
+if sidebar and sidebar isnt bottom
+  #main
+    @media mq-normal
+      column(main-column)
+
+if sidebar is left
+  @media mq-normal
+    #main
+      float: right
+
+@import "_extend"
+@import "_partial/header"
+@import "_partial/article"
+@import "_partial/comment"
+@import "_partial/archive"
+@import "_partial/footer"
+@import "_partial/highlight"
+@import "_partial/mobile"
+
+if sidebar
+  @import "_partial/sidebar"
+
+// === Custom Styles ===
+
+body
+  background: var(--color-surface-base)
+
+a
+  color: var(--color-text-link)
+  transition: color 0.2s ease, border-color 0.2s ease
+  &:hover
+    color: var(--color-text-link-hover)
+
+#content
+  background: var(--color-surface-base)
+
+.article-inner
+  background: var(--color-surface-elevated)
+
+.widget
+  background: var(--color-surface-elevated)
+
+body
+  font-family: font-sans
+  font-size: font-size
+  line-height: line-height
+  color: var(--color-text-primary)
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-rendering: optimizeLegibility
+  font-variant-ligatures: common-ligatures
+
+.article-entry
+  font-size: font-size
+  line-height: line-height-cjk
+  color: var(--color-text-primary)
+  word-wrap: break-word
+  overflow-wrap: break-word
+  p
+    margin: 0 0 1.2em
+    text-indent: var(--cjk-text-indent)
+  li p, blockquote p, td p, th p
+    text-indent: 0
+  strong
+    font-weight: 600
+    color: var(--color-bold-text)
+  h1
+    font-size: font-size-h1
+    font-weight: 700
+    margin: 1.5em 0 0.8em
+    padding-bottom: 0.3em
+    border-bottom: 2px solid var(--color-accent-primary)
+    color: var(--color-text-heading)
+  h2
+    font-size: font-size-h2
+    font-weight: 600
+    margin: 1.4em 0 0.7em
+    padding-bottom: 0.2em
+    color: var(--color-text-heading)
+  h3
+    font-size: font-size-h3
+    font-weight: 600
+    margin: 1.2em 0 0.6em
+    color: var(--color-text-primary)
+  h4
+    font-size: font-size-h4
+    font-weight: 600
+    margin: 1em 0 0.5em
+    color: var(--color-text-primary)
+  h5
+    font-size: font-size-h5
+    font-weight: 600
+    margin: 1em 0 0.4em
+    color: var(--color-text-secondary)
+  h6
+    font-size: font-size-h6
+    font-weight: 500
+    margin: 1em 0 0.4em
+    color: var(--color-text-secondary)
+  ul, ol, dl
+    margin: 0.8em 0
+    padding-left: 2em
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+  li
+    margin: 0.4em 0
+    line-height: 1.8
+  ul ul, ol ol, ul ol, ol ul
+    margin: 0.3em 0
+  a
+    color: var(--color-text-link)
+    text-decoration: none
+    border-bottom: 1px solid transparent
+    transition: all 0.2s ease
+    &:hover
+      color: var(--color-text-link-hover)
+      border-bottom-color: var(--color-text-link-hover)
+  hr
+    border: none
+    height: 1px
+    background: linear-gradient(to right, transparent, var(--color-border-default), transparent)
+    margin: 2em 0
+  table
+    width: 100%
+    border-collapse: collapse
+    margin: 1.5em 0
+    font-size: 0.95em
+    th
+      font-weight: 600
+      background: var(--color-table-header-bg)
+      border-bottom: 2px solid var(--color-border-default)
+      padding: 12px 16px
+      text-align: left
+      color: var(--color-text-primary)
+    td
+      padding: 10px 16px
+      border-bottom: 1px solid var(--color-border-default)
+      color: var(--color-text-primary)
+    tr:nth-child(even) td
+      background: var(--color-table-stripe-bg)
+    tr:hover td
+      background: var(--color-table-hover-bg)
+  code
+    background: var(--color-code-inline-bg)
+    padding: 2px 6px
+    border-radius: radius-sm
+    font-size: 0.9em
+    color: var(--color-code-inline-text)
+    font-family: font-mono
+  pre code
+    background: none
+    padding: 0
+    color: inherit
+    font-size: inherit
+
+.article
+  margin: spacing-lg 0
+  transition: box-shadow 0.3s ease
+
+.article-inner
+  background: var(--color-surface-elevated)
+  border: 1px solid var(--color-border-default)
+  border-radius: radius-md
+  box-shadow: shadow-card
+  overflow: hidden
+  transition: all 0.3s ease
+  &:hover
+    box-shadow: shadow-card-hover
+    transform: translateY(-2px)
+
+.article-entry
+  max-width: 800px
+  margin: 0 auto
+
+.article-header
+  padding: article-padding article-padding 0
+
+.article-meta
+  padding: 0 article-padding
+
+.article-footer
+  padding: 0 article-padding article-padding
+
+.code-copy-btn
+  position: absolute
+  top: 8px
+  right: 8px
+  padding: 4px 12px
+  border: none
+  border-radius: radius-sm
+  background: rgba(255, 255, 255, 0.15)
+  color: var(--color-text-tertiary)
+  font-size: 12px
+  cursor: pointer
+  opacity: 0
+  transition: all 0.2s ease
+  z-index: 2
+  &:hover
+    background: rgba(255, 255, 255, 0.25)
+    color: #fff
+  &.copied
+    background: rgba(52, 152, 219, 0.6)
+    color: #fff
+
+.highlight:hover .code-copy-btn
+  opacity: 1
+
+.tagcloud a
+  display: inline-block
+  margin: 3px 6px
+  padding: 4px 10px
+  border-radius: radius-sm
+  background: var(--color-blockquote-bg)
+  color: var(--color-accent-primary)
+  font-size: 0.85em
+  transition: all 0.2s ease
+  &:hover
+    background: var(--color-accent-primary)
+    color: var(--color-brand-primary-text)
+    text-decoration: none
+    transform: translateY(-1px)
+
+.widget.recent_posts li
+  padding: 8px 0
+  border-bottom: 1px solid var(--color-border-default)
+  &:last-child
+    border-bottom: none
+  a
+    color: var(--color-text-primary)
+    font-size: 0.9em
+    &:hover
+      color: var(--color-text-link)
+
+.back-to-top
+  position: fixed
+  bottom: 40px
+  right: 40px
+  width: 44px
+  height: 44px
+  border-radius: 50%
+  background: var(--color-accent-primary)
+  color: var(--color-brand-primary-text)
+  text-align: center
+  line-height: 44px
+  cursor: pointer
+  opacity: 0
+  visibility: hidden
+  transition: all 0.3s ease
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
+  z-index: 99
+  &.visible
+    opacity: 1
+    visibility: visible
+  &:hover
+    background: var(--color-accent-primary-hover)
+    transform: translateY(-3px)
+
+.article, .widget-wrap
+  animation: fadeInUp 0.4s ease
+
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(10px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+.article-entry img
+  opacity: 0
+  transition: opacity 0.5s ease, filter 0.3s ease
+  &.loaded
+    opacity: 1
+  filter: brightness(var(--img-brightness))
+
+a
+  transition: color 0.2s ease, border-color 0.2s ease
+
+body, .article-inner, .widget, #footer, #main-navbar,
+.article-entry blockquote, .article-entry table th,
+.article-entry tr:nth-child(even) td,
+.tagcloud a, .code-copy-btn
+  transition: var(--theme-transition)
+
+@media mq-mobile
+  #main-navbar .inner
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  #main-nav-toggle
+    display: block
+    width: 44px
+    height: 44px
+    text-align: center
+    line-height: 44px
+
+  .main-nav-link
+    display: none
+
+  #mobile-nav
+    .mobile-nav-link
+      display: block
+      padding: 15px 20px
+      color: var(--color-brand-primary-text)
+      min-height: 44px
+      line-height: 44px
+      &:hover
+        color: #fff
+        background: rgba(255, 255, 255, 0.1)
+
+  .article-inner
+    border-radius: 0
+    margin: 0 -spacing-md
+
+  .article-header
+    padding: spacing-md
+
+  .article-entry
+    padding: 0 spacing-md
+    font-size: 16px
+    line-height: 1.8
+
+  .highlight
+    margin: spacing-md -spacing-md
+    border-radius: 0
+    -webkit-overflow-scrolling: touch
+
+  .article-entry pre
+    margin: spacing-md -spacing-md
+    border-radius: 0
+
+  a, button
+    min-height: 44px
+    min-width: 44px
+
+  .article-tag-list-link
+    display: inline-block
+    padding: 6px 12px
+    min-height: 44px
+    line-height: 32px
+
+  .back-to-top
+    bottom: 20px
+    right: 20px
+    width: 48px
+    height: 48px
+    line-height: 48px
+
+@media mq-tablet
+  .article-inner
+    border-radius: radius-md
+
+[data-theme="dark"]
+  #main-navbar
+    background: var(--color-brand-primary)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
+
+  .main-nav-link
+    color: var(--color-brand-primary-text)
+    &::after
+      background: var(--color-brand-primary-text)
+
+  .nav-icon
+    color: var(--color-brand-primary-text)
+
+  #main-nav-toggle
+    color: var(--color-brand-primary-text)
+
+  .article-inner
+    background: var(--color-surface-elevated)
+    border-color: var(--color-border-default)
+
+  .article-title
+    color: var(--color-text-heading)
+
+  .article-footer
+    border-top-color: var(--color-border-default)
+    a
+      color: var(--color-text-secondary)
+      &:hover
+        color: var(--color-text-link)
+
+  .article-nav-link-wrap
+    color: var(--color-text-secondary)
+    &:hover
+      color: var(--color-text-primary)
+
+  .article-nav-caption
+    color: var(--color-text-tertiary)
+
+  .back-to-top
+    background: var(--color-accent-primary)
+    color: var(--color-brand-primary-text)
+    &:hover
+      background: var(--color-accent-primary-hover)
