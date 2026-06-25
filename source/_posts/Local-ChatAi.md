@@ -1,5 +1,19 @@
 ---
-title: Local ChatAi
+title: "SoLoChat: 一个整合多模型调用与智能运维的本地 AI 平台"
 date: 2026-06-25 21:59:49
-tags:
+tags: [LLM, Agent]
+categories: AI应用落地
+description: 本篇博客记录部署本地AI应用平台过程，运行在用户本地机器或局域网环境中，通过整合大模型调用、Agent编排、RAG检索增强生成和系统运维能力，实现智能对话与知识问答。
 ---
+
+## 一. LLM调用管理
+
+## 二. Agent编排与执行
+
+## 三. RAG检索增强生成
+
+## 四. 模型网关与运维
+
+## 五. AI应用测评
+
+## 六. AI语音交互
