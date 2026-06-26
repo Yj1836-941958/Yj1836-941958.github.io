@@ -1,3 +1,4 @@
+// YJ Blog 定制样式优化 2026
 highlight-background = #282c34
 highlight-current-line = #2c313a
 highlight-selection = #3e4451
@@ -12,18 +13,18 @@ highlight-blue = #61afef
 highlight-purple = #c678dd
 
 $code-block
-  background: highlight-background
+  background: var(--yj-code-bg)
   margin: spacing-lg 0
   padding: 20px
   border-radius: radius-md
-  border: none
+  border: 1px solid var(--yj-code-border)
   overflow: auto
   color: highlight-foreground
   line-height: 1.6
   font-size: 14px
 
 $line-numbers
-  color: #4b5263
+  color: rgba(90, 127, 160, 0.5)
   font-size: 0.85em
 
 .article-entry

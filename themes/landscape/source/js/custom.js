@@ -1,3 +1,4 @@
+// YJ Blog 定制样式优化 2026
 (function () {
   'use strict';
 
@@ -136,11 +137,27 @@
     }
   };
 
+  var YJScrollIndicator = {
+    init: function () {
+      var bar = document.createElement('div');
+      bar.className = 'yj-scroll-progress';
+      bar.style.width = '0%';
+      document.body.appendChild(bar);
+      window.addEventListener('scroll', function () {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        bar.style.width = progress + '%';
+      });
+    }
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
     BackToTop.init();
     CodeCopy.init();
     LazyLoad.init();
     DarkMode.init();
     CJKSpacing.init();
+    YJScrollIndicator.init();
   });
 })();

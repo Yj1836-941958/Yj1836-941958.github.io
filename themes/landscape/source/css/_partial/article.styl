@@ -1,3 +1,4 @@
+// YJ Blog 定制样式优化 2026
 .article
   margin: block-margin 0
 
@@ -32,27 +33,27 @@
   text-decoration: none
   font-size: 2em
   font-weight: bold
-  color: color-default
+  color: var(--yj-text-heading)
   line-height: line-height-title
   transition: color 0.2s
   a&:hover
-    color: color-link
+    color: var(--yj-text-link)
 
 .article-entry
   @extend $base-style
   clearfix()
-  color: color-default
+  color: var(--yj-text-body)
   padding: 0 article-padding
   p, table
-    line-height: line-height
-    margin: line-height 0
+    line-height: line-height-cjk
+    margin: 0 0 spacing-paragraph
   h1, h2, h3, h4, h5, h6
     font-weight: bold
   h1, h2, h3, h4, h5, h6
     line-height: line-height-title
     margin: line-height-title 0
   a
-    color: color-link
+    color: var(--yj-text-link)
     text-decoration: none
     &:hover
       text-decoration: underline
@@ -135,31 +136,31 @@
   line-height: 1
   padding: 8px 20px
   border-radius: radius-sm
-  background: var(--color-accent-primary)
-  color: var(--color-brand-primary-text)
+  background: var(--yj-main-color)
+  color: var(--yj-brand-primary-text)
   text-decoration: none
   font-size: 0.9em
   font-weight: 500
   transition: all 0.2s ease
   &:hover
-    background: var(--color-accent-primary-hover)
-    color: var(--color-brand-primary-text)
+    background: var(--yj-main-color-dark)
+    color: var(--yj-brand-primary-text)
     text-decoration: none
     transform: translateY(-1px)
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3)
+    box-shadow: 0 2px 8px rgba(90, 127, 160, 0.3)
 
 .article-footer
   clearfix()
   font-size: 0.85em
   line-height: line-height
-  border-top: 1px solid color-border
+  border-top: 1px solid var(--yj-border-default)
   padding-top: line-height
   margin: 0 article-padding article-padding
   a
-    color: color-grey
+    color: var(--yj-text-muted)
     text-decoration: none
     &:hover
-      color: color-default
+      color: var(--yj-text-body)
 
 .article-tag-list-item
   float: left

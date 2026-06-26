@@ -1,3 +1,4 @@
+// YJ Blog 定制样式优化 2026
 @import "nib"
 @import "_variables"
 @import "_tokens"
@@ -79,7 +80,7 @@ if sidebar is left
 if sidebar
   @import "_partial/sidebar"
 
-// === Custom Styles ===
+// === YJ Blog Custom Styles ===
 
 body
   background: var(--color-surface-base)
@@ -102,12 +103,13 @@ a
 body
   font-family: font-sans
   font-size: font-size
-  line-height: line-height
+  line-height: line-height-cjk
   color: var(--color-text-primary)
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-rendering: optimizeLegibility
   font-variant-ligatures: common-ligatures
+  transition: var(--yj-theme-transition)
 
 .article-entry
   font-size: font-size
@@ -128,7 +130,7 @@ body
     font-weight: 700
     margin: 1.5em 0 0.8em
     padding-bottom: 0.3em
-    border-bottom: 2px solid var(--color-accent-primary)
+    border-bottom: 2px solid var(--yj-main-color)
     color: var(--color-text-heading)
   h2
     font-size: font-size-h2
@@ -260,7 +262,7 @@ body
     background: rgba(255, 255, 255, 0.25)
     color: #fff
   &.copied
-    background: rgba(52, 152, 219, 0.6)
+    background: var(--yj-main-color)
     color: #fff
 
 .highlight:hover .code-copy-btn
@@ -272,11 +274,11 @@ body
   padding: 4px 10px
   border-radius: radius-sm
   background: var(--color-blockquote-bg)
-  color: var(--color-accent-primary)
+  color: var(--yj-main-color)
   font-size: 0.85em
   transition: all 0.2s ease
   &:hover
-    background: var(--color-accent-primary)
+    background: var(--yj-main-color)
     color: var(--color-brand-primary-text)
     text-decoration: none
     transform: translateY(-1px)
@@ -299,10 +301,9 @@ body
   width: 44px
   height: 44px
   border-radius: 50%
-  background: var(--color-accent-primary)
-  color: var(--color-brand-primary-text)
+  background: var(--yj-main-color)
+  color: var(--yj-brand-primary-text)
   text-align: center
-  line-height: 44px
   cursor: pointer
   opacity: 0
   visibility: hidden
@@ -313,8 +314,15 @@ body
     opacity: 1
     visibility: visible
   &:hover
-    background: var(--color-accent-primary-hover)
+    background: var(--yj-main-color-dark)
     transform: translateY(-3px)
+
+.yj-back-top-label
+  display: inline-block
+  font-family: font-sans
+  font-size: 11px
+  font-weight: 700
+  letter-spacing: 0.5px
 
 .article, .widget-wrap
   animation: fadeInUp 0.4s ease
@@ -328,6 +336,11 @@ body
     transform: translateY(0)
 
 .article-entry img
+  display: block
+  max-width: 100%
+  margin: 1.5em auto
+  border-radius: radius-sm
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
   opacity: 0
   transition: opacity 0.5s ease, filter 0.3s ease
   &.loaded
@@ -340,7 +353,7 @@ a
 body, .article-inner, .widget, #footer, #main-navbar,
 .article-entry blockquote, .article-entry table th,
 .article-entry tr:nth-child(even) td,
-.tagcloud a, .code-copy-btn
+.tagcloud a, .code-copy-btn, .yj-author-widget, .yj-404-container, .back-to-top
   transition: var(--theme-transition)
 
 @media mq-mobile
@@ -451,7 +464,156 @@ body, .article-inner, .widget, #footer, #main-navbar,
     color: var(--color-text-tertiary)
 
   .back-to-top
-    background: var(--color-accent-primary)
-    color: var(--color-brand-primary-text)
+    background: var(--yj-main-color)
+    color: var(--yj-brand-primary-text)
     &:hover
-      background: var(--color-accent-primary-hover)
+      background: var(--yj-main-color-dark)
+
+// === YJ标识样式 ===
+
+.article-title
+  position: relative
+  padding-left: 1.2em
+  &::before
+    content: ""
+    position: absolute
+    left: 0
+    top: 10%
+    height: 60%
+    width: 4px
+    border-radius: 2px
+    background: var(--yj-accent-gradient)
+
+::-webkit-scrollbar
+  width: 8px
+  height: 8px
+
+::-webkit-scrollbar-track
+  background: var(--yj-surface-base)
+
+::-webkit-scrollbar-thumb
+  background: var(--yj-main-color)
+  border-radius: 4px
+  &:hover
+    background: var(--yj-main-color-dark)
+
+::-webkit-scrollbar-corner
+  background: var(--yj-surface-base)
+
+.yj-footer-copyright
+  font-weight: 500
+  color: rgba(255, 255, 255, 0.9)
+
+.yj-footer-signature
+  font-size: 0.85em
+  color: rgba(255, 255, 255, 0.6)
+  font-style: italic
+
+.yj-author-card
+  margin-bottom: spacing-md
+
+.yj-author-widget
+  background: var(--yj-surface-elevated)
+  border: 1px solid var(--yj-border-default)
+  border-radius: radius-md
+  padding: article-padding
+  text-align: center
+  box-shadow: var(--yj-shadow-card)
+  transition: var(--yj-theme-transition)
+
+.yj-author-avatar
+  width: 80px
+  height: 80px
+  border-radius: 50%
+  background: var(--yj-accent-gradient)
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 0 auto spacing-md
+
+.yj-avatar-text
+  font-size: 28px
+  font-weight: 700
+  color: var(--yj-brand-primary-text)
+  font-family: font-sans
+  letter-spacing: 1px
+
+.yj-author-info
+  text-align: center
+
+.yj-author-name
+  font-size: 1.1em
+  font-weight: 600
+  color: var(--yj-text-heading)
+  margin-bottom: 4px
+
+.yj-author-bio
+  font-size: 0.85em
+  color: var(--yj-text-muted)
+  margin-bottom: 6px
+
+.yj-author-slogan
+  font-size: 0.8em
+  color: var(--yj-main-color)
+  font-style: italic
+
+// === YJ 404页面 ===
+
+.yj-404-container
+  text-align: center
+  padding: 80px 24px
+  max-width: 600px
+  margin: 0 auto
+
+.yj-404-code
+  font-size: 8em
+  font-weight: 200
+  color: var(--yj-main-color)
+  line-height: 1
+  margin-bottom: 0.2em
+
+.yj-404-heading
+  font-size: 1.6em
+  font-weight: 600
+  color: var(--yj-text-heading)
+  margin-bottom: 0.5em
+
+.yj-404-message
+  font-size: 1em
+  color: var(--yj-text-muted)
+  margin-bottom: 2em
+
+.yj-404-home-link
+  display: inline-block
+  padding: 10px 28px
+  background: var(--yj-main-color)
+  color: var(--yj-brand-primary-text)
+  border-radius: radius-sm
+  text-decoration: none
+  font-weight: 500
+  transition: all 0.2s ease
+  &:hover
+    background: var(--yj-main-color-dark)
+    color: var(--yj-brand-primary-text)
+    text-decoration: none
+    transform: translateY(-2px)
+    box-shadow: 0 4px 12px rgba(90, 127, 160, 0.3)
+
+// === YJ hover渐变效果 ===
+
+.article-entry a:hover
+  background-image: var(--yj-accent-gradient-subtle)
+  background-size: 100% 1px
+  background-repeat: no-repeat
+  background-position: bottom
+
+// === YJ滚动进度条 ===
+
+.yj-scroll-progress
+  position: fixed
+  top: 0
+  left: 0
+  height: 2px
+  background: var(--yj-main-color)
+  z-index: 9999
+  transition: width 0.1s

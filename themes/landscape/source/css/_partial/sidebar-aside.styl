@@ -1,3 +1,4 @@
+// YJ Blog 定制样式优化 2026
 #sidebar
   @media mq-normal
     column(sidebar-column)
@@ -8,27 +9,27 @@
 .widget-title
   font-size: 0.9em
   font-weight: 600
-  color: color-primary
+  color: var(--yj-text-heading)
   text-transform: none
   letter-spacing: 0
   margin-bottom: spacing-sm
   padding-bottom: spacing-xs
-  border-bottom: 2px solid color-accent
+  border-bottom: 2px solid var(--yj-main-color)
 
 .widget
-  color: color-sidebar-text
+  color: var(--yj-text-body)
   text-shadow: none
-  background: color-widget-background
-  box-shadow: shadow-card
-  border: 1px solid color-widget-border
+  background: var(--yj-surface-elevated)
+  box-shadow: var(--yj-shadow-card)
+  border: 1px solid var(--yj-border-default)
   border-radius: radius-md
   padding: spacing-md
   a
-    color: color-link
+    color: var(--yj-text-link)
     text-decoration: none
     transition: color 0.2s ease
     &:hover
-      color: color-accent-hover
+      color: var(--yj-text-link-hover)
       text-decoration: none
   ul, ol, dl
     ul, ol, dl
@@ -46,15 +47,15 @@
         color: var(--color-text-link-hover)
 
   .widget-title
-    color: var(--color-text-heading)
-    border-bottom-color: var(--color-accent-primary)
+    color: var(--yj-text-heading)
+    border-bottom-color: var(--yj-main-color)
 
   .tagcloud a
-    background: rgba(93, 173, 226, 0.1)
-    color: var(--color-accent-primary)
+    background: var(--yj-main-color-subtle)
+    color: var(--yj-main-color)
     &:hover
-      background: var(--color-accent-primary)
-      color: var(--color-brand-primary-text)
+      background: var(--yj-main-color)
+      color: var(--yj-brand-primary-text)
 
   .widget.recent_posts li
     border-bottom-color: var(--color-border-default)

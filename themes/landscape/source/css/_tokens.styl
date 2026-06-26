@@ -1,17 +1,76 @@
+// YJ Blog 定制样式优化 2026
+// YJ色彩Token体系 — 双层架构：--yj-* 语义层 + --color-* 映射层
+
 :root
+  // === YJ主色系 — 低饱和科技蓝 hsl(210,35%,50%) ===
+  --yj-main-color: #5a7fa0
+  --yj-main-color-light: #e8f0f7
+  --yj-main-color-dark: #3a5570
+  --yj-main-color-subtle: rgba(90, 127, 160, 0.08)
+  --yj-main-color-muted: rgba(90, 127, 160, 0.15)
+
+  // === YJ辅助色 — 渐变 ===
+  --yj-accent-gradient: linear-gradient(135deg, #5a7fa0, #3a5570)
+  --yj-accent-gradient-subtle: linear-gradient(90deg, rgba(90, 127, 160, 0.6), rgba(58, 85, 112, 0.8))
+
+  // === YJ文字色 ===
+  --yj-text-heading: #2c3e50
+  --yj-text-body: #333333
+  --yj-text-muted: #888888
+  --yj-text-link: #5a7fa0
+  --yj-text-link-hover: #3a5570
+
+  // === YJ表面色 ===
+  --yj-surface-base: #f5f6f7
+  --yj-surface-elevated: #ffffff
+  --yj-surface-sunken: #f0f2f5
+
+  // === YJ边框与阴影 ===
+  --yj-border-default: #e0e4e8
+  --yj-border-emphasis: #5a7fa0
+  --yj-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06)
+  --yj-shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.1)
+
+  // === YJ代码色 ===
+  --yj-code-bg: #282c34
+  --yj-code-border: rgba(90, 127, 160, 0.2)
+  --yj-code-inline-bg: rgba(90, 127, 160, 0.06)
+  --yj-code-inline-text: #2c3e50
+
+  // === YJ引用色 ===
+  --yj-blockquote-bg: rgba(90, 127, 160, 0.06)
+  --yj-blockquote-border: #5a7fa0
+  --yj-blockquote-text: #555555
+
+  // === YJ表格色 ===
+  --yj-table-header-bg: #f8f9fa
+  --yj-table-stripe-bg: #fafbfc
+  --yj-table-hover-bg: rgba(90, 127, 160, 0.04)
+
+  // === YJ品牌色 ===
+  --yj-brand-primary: #2c3e50
+  --yj-brand-primary-text: #ffffff
+
+  // === YJ其他 ===
+  --yj-bold-text: #2c3e50
+  --yj-img-brightness: 1
+  --yj-cjk-text-indent: 2em
+  --yj-theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
+
+  // === 基础色值（保留兼容） ===
   --color-blue-50: #ebf5fb
   --color-blue-100: #d6eaf8
   --color-blue-200: #aed6f1
   --color-blue-300: #85c1e9
   --color-blue-400: #5dade2
-  --color-blue-500: #3498db
-  --color-blue-600: #2e86c1
-  --color-blue-700: #2980b9
-  --color-blue-800: #2471a3
-  --color-blue-900: #1a5276
+  --color-blue-500: #5a7fa0
+  --color-blue-600: #4a6f8f
+  --color-blue-700: #3a5570
+  --color-blue-800: #2a4560
+  --color-blue-900: #1a3550
   --color-gray-50: #f8f9fa
   --color-gray-100: #f5f6f7
-  --color-gray-200: #ebedef
+  --color-gray-200: #e0e4e8
   --color-gray-300: #d5d8dc
   --color-gray-400: #abb2b9
   --color-gray-500: #888888
@@ -26,88 +85,164 @@
   --color-dark-300: #151d28
   --color-dark-400: #111820
   --color-dark-500: #0d1117
-  --color-text-primary: var(--color-gray-800)
-  --color-text-secondary: var(--color-gray-500)
-  --color-text-tertiary: var(--color-gray-400)
-  --color-text-heading: var(--color-gray-900)
-  --color-text-link: var(--color-blue-500)
-  --color-text-link-hover: var(--color-blue-700)
-  --color-surface-base: var(--color-gray-100)
-  --color-surface-elevated: #ffffff
-  --color-surface-sunken: var(--color-gray-50)
-  --color-border-default: var(--color-gray-200)
-  --color-border-emphasis: var(--color-blue-500)
-  --color-accent-primary: var(--color-blue-500)
-  --color-accent-primary-hover: var(--color-blue-700)
-  --color-brand-primary: var(--color-gray-900)
-  --color-brand-primary-text: #ffffff
-  --color-code-inline-bg: rgba(52, 152, 219, 0.06)
-  --color-code-inline-text: var(--color-gray-900)
-  --color-code-block-bg: #282c34
-  --color-blockquote-bg: rgba(52, 152, 219, 0.06)
-  --color-blockquote-border: var(--color-blue-500)
-  --color-blockquote-text: #555555
-  --color-table-header-bg: var(--color-gray-50)
-  --color-table-stripe-bg: #fafbfc
-  --color-table-hover-bg: rgba(52, 152, 219, 0.04)
-  --color-bold-text: var(--color-gray-900)
-  --img-brightness: 1
-  --cjk-text-indent: 2em
-  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
+
+  // === 语义Token层 — 映射到 --yj-* ===
+  --color-text-primary: var(--yj-text-body)
+  --color-text-secondary: var(--yj-text-muted)
+  --color-text-tertiary: #abb2b9
+  --color-text-heading: var(--yj-text-heading)
+  --color-text-link: var(--yj-text-link)
+  --color-text-link-hover: var(--yj-text-link-hover)
+  --color-surface-base: var(--yj-surface-base)
+  --color-surface-elevated: var(--yj-surface-elevated)
+  --color-surface-sunken: var(--yj-surface-sunken)
+  --color-border-default: var(--yj-border-default)
+  --color-border-emphasis: var(--yj-border-emphasis)
+  --color-accent-primary: var(--yj-main-color)
+  --color-accent-primary-hover: var(--yj-main-color-dark)
+  --color-brand-primary: var(--yj-brand-primary)
+  --color-brand-primary-text: var(--yj-brand-primary-text)
+  --color-code-inline-bg: var(--yj-code-inline-bg)
+  --color-code-inline-text: var(--yj-code-inline-text)
+  --color-code-block-bg: var(--yj-code-bg)
+  --color-blockquote-bg: var(--yj-blockquote-bg)
+  --color-blockquote-border: var(--yj-blockquote-border)
+  --color-blockquote-text: var(--yj-blockquote-text)
+  --color-table-header-bg: var(--yj-table-header-bg)
+  --color-table-stripe-bg: var(--yj-table-stripe-bg)
+  --color-table-hover-bg: var(--yj-table-hover-bg)
+  --color-bold-text: var(--yj-bold-text)
+  --img-brightness: var(--yj-img-brightness)
+  --cjk-text-indent: var(--yj-cjk-text-indent)
+  --theme-transition: var(--yj-theme-transition)
 
 [data-theme="dark"]
-  --color-text-primary: #d1d5db
-  --color-text-secondary: #9ca3af
+  --yj-main-color: #7ba3c4
+  --yj-main-color-light: #1a2a3a
+  --yj-main-color-dark: #4a6a85
+  --yj-main-color-subtle: rgba(123, 163, 196, 0.1)
+  --yj-main-color-muted: rgba(123, 163, 196, 0.18)
+  --yj-accent-gradient: linear-gradient(135deg, #7ba3c4, #4a6a85)
+  --yj-accent-gradient-subtle: linear-gradient(90deg, rgba(123, 163, 196, 0.6), rgba(74, 106, 133, 0.8))
+  --yj-text-heading: #f3f4f6
+  --yj-text-body: #d1d5db
+  --yj-text-muted: #9ca3af
+  --yj-text-link: #7ba3c4
+  --yj-text-link-hover: #9bbad4
+  --yj-surface-base: #0d1117
+  --yj-surface-elevated: #1e2a3a
+  --yj-surface-sunken: #151d28
+  --yj-border-default: #2d3748
+  --yj-border-emphasis: #7ba3c4
+  --yj-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3)
+  --yj-shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.4)
+  --yj-code-bg: #1a2332
+  --yj-code-border: rgba(123, 163, 196, 0.15)
+  --yj-code-inline-bg: rgba(123, 163, 196, 0.12)
+  --yj-code-inline-text: #7ba3c4
+  --yj-blockquote-bg: rgba(123, 163, 196, 0.08)
+  --yj-blockquote-border: #7ba3c4
+  --yj-blockquote-text: #9ca3af
+  --yj-table-header-bg: #1e2a3a
+  --yj-table-stripe-bg: #1a2332
+  --yj-table-hover-bg: rgba(123, 163, 196, 0.06)
+  --yj-brand-primary: #1e2a3a
+  --yj-brand-primary-text: #f3f4f6
+  --yj-bold-text: #7ba3c4
+  --yj-img-brightness: 0.9
+  --yj-cjk-text-indent: 2em
+  --yj-theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
+  --color-text-primary: var(--yj-text-body)
+  --color-text-secondary: var(--yj-text-muted)
   --color-text-tertiary: #6b7280
-  --color-text-heading: #f3f4f6
-  --color-text-link: var(--color-blue-400)
-  --color-text-link-hover: var(--color-blue-300)
-  --color-surface-base: var(--color-dark-500)
-  --color-surface-elevated: var(--color-dark-50)
-  --color-surface-sunken: var(--color-dark-300)
-  --color-border-default: var(--color-dark-50)
-  --color-border-emphasis: var(--color-blue-400)
-  --color-accent-primary: var(--color-blue-400)
-  --color-accent-primary-hover: var(--color-blue-300)
-  --color-brand-primary: var(--color-dark-100)
-  --color-brand-primary-text: #f3f4f6
-  --color-code-inline-bg: rgba(93, 173, 226, 0.12)
-  --color-code-inline-text: var(--color-blue-300)
-  --color-code-block-bg: #1a2332
-  --color-blockquote-bg: rgba(93, 173, 226, 0.08)
-  --color-blockquote-border: var(--color-blue-400)
-  --color-blockquote-text: #9ca3af
-  --color-table-header-bg: var(--color-dark-100)
-  --color-table-stripe-bg: var(--color-dark-200)
-  --color-table-hover-bg: rgba(93, 173, 226, 0.06)
-  --color-bold-text: var(--color-blue-300)
-  --img-brightness: 0.9
+  --color-text-heading: var(--yj-text-heading)
+  --color-text-link: var(--yj-text-link)
+  --color-text-link-hover: var(--yj-text-link-hover)
+  --color-surface-base: var(--yj-surface-base)
+  --color-surface-elevated: var(--yj-surface-elevated)
+  --color-surface-sunken: var(--yj-surface-sunken)
+  --color-border-default: var(--yj-border-default)
+  --color-border-emphasis: var(--yj-border-emphasis)
+  --color-accent-primary: var(--yj-main-color)
+  --color-accent-primary-hover: var(--yj-main-color-dark)
+  --color-brand-primary: var(--yj-brand-primary)
+  --color-brand-primary-text: var(--yj-brand-primary-text)
+  --color-code-inline-bg: var(--yj-code-inline-bg)
+  --color-code-inline-text: var(--yj-code-inline-text)
+  --color-code-block-bg: var(--yj-code-bg)
+  --color-blockquote-bg: var(--yj-blockquote-bg)
+  --color-blockquote-border: var(--yj-blockquote-border)
+  --color-blockquote-text: var(--yj-blockquote-text)
+  --color-table-header-bg: var(--yj-table-header-bg)
+  --color-table-stripe-bg: var(--yj-table-stripe-bg)
+  --color-table-hover-bg: var(--yj-table-hover-bg)
+  --color-bold-text: var(--yj-bold-text)
+  --img-brightness: var(--yj-img-brightness)
+  --cjk-text-indent: var(--yj-cjk-text-indent)
+  --theme-transition: var(--yj-theme-transition)
 
 @media (prefers-color-scheme: dark)
   :root:not([data-theme="light"])
-    --color-text-primary: #d1d5db
-    --color-text-secondary: #9ca3af
+    --yj-main-color: #7ba3c4
+    --yj-main-color-light: #1a2a3a
+    --yj-main-color-dark: #4a6a85
+    --yj-main-color-subtle: rgba(123, 163, 196, 0.1)
+    --yj-main-color-muted: rgba(123, 163, 196, 0.18)
+    --yj-accent-gradient: linear-gradient(135deg, #7ba3c4, #4a6a85)
+    --yj-accent-gradient-subtle: linear-gradient(90deg, rgba(123, 163, 196, 0.6), rgba(74, 106, 133, 0.8))
+    --yj-text-heading: #f3f4f6
+    --yj-text-body: #d1d5db
+    --yj-text-muted: #9ca3af
+    --yj-text-link: #7ba3c4
+    --yj-text-link-hover: #9bbad4
+    --yj-surface-base: #0d1117
+    --yj-surface-elevated: #1e2a3a
+    --yj-surface-sunken: #151d28
+    --yj-border-default: #2d3748
+    --yj-border-emphasis: #7ba3c4
+    --yj-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3)
+    --yj-shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.4)
+    --yj-code-bg: #1a2332
+    --yj-code-border: rgba(123, 163, 196, 0.15)
+    --yj-code-inline-bg: rgba(123, 163, 196, 0.12)
+    --yj-code-inline-text: #7ba3c4
+    --yj-blockquote-bg: rgba(123, 163, 196, 0.08)
+    --yj-blockquote-border: #7ba3c4
+    --yj-blockquote-text: #9ca3af
+    --yj-table-header-bg: #1e2a3a
+    --yj-table-stripe-bg: #1a2332
+    --yj-table-hover-bg: rgba(123, 163, 196, 0.06)
+    --yj-brand-primary: #1e2a3a
+    --yj-brand-primary-text: #f3f4f6
+    --yj-bold-text: #7ba3c4
+    --yj-img-brightness: 0.9
+    --yj-cjk-text-indent: 2em
+    --yj-theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
+    --color-text-primary: var(--yj-text-body)
+    --color-text-secondary: var(--yj-text-muted)
     --color-text-tertiary: #6b7280
-    --color-text-heading: #f3f4f6
-    --color-text-link: var(--color-blue-400)
-    --color-text-link-hover: var(--color-blue-300)
-    --color-surface-base: var(--color-dark-500)
-    --color-surface-elevated: var(--color-dark-50)
-    --color-surface-sunken: var(--color-dark-300)
-    --color-border-default: var(--color-dark-50)
-    --color-border-emphasis: var(--color-blue-400)
-    --color-accent-primary: var(--color-blue-400)
-    --color-accent-primary-hover: var(--color-blue-300)
-    --color-brand-primary: var(--color-dark-100)
-    --color-brand-primary-text: #f3f4f6
-    --color-code-inline-bg: rgba(93, 173, 226, 0.12)
-    --color-code-inline-text: var(--color-blue-300)
-    --color-code-block-bg: #1a2332
-    --color-blockquote-bg: rgba(93, 173, 226, 0.08)
-    --color-blockquote-border: var(--color-blue-400)
-    --color-blockquote-text: #9ca3af
-    --color-table-header-bg: var(--color-dark-100)
-    --color-table-stripe-bg: var(--color-dark-200)
-    --color-table-hover-bg: rgba(93, 173, 226, 0.06)
-    --color-bold-text: var(--color-blue-300)
-    --img-brightness: 0.9
+    --color-text-heading: var(--yj-text-heading)
+    --color-text-link: var(--yj-text-link)
+    --color-text-link-hover: var(--yj-text-link-hover)
+    --color-surface-base: var(--yj-surface-base)
+    --color-surface-elevated: var(--yj-surface-elevated)
+    --color-surface-sunken: var(--yj-surface-sunken)
+    --color-border-default: var(--yj-border-default)
+    --color-border-emphasis: var(--yj-border-emphasis)
+    --color-accent-primary: var(--yj-main-color)
+    --color-accent-primary-hover: var(--yj-main-color-dark)
+    --color-brand-primary: var(--yj-brand-primary)
+    --color-brand-primary-text: var(--yj-brand-primary-text)
+    --color-code-inline-bg: var(--yj-code-inline-bg)
+    --color-code-inline-text: var(--yj-code-inline-text)
+    --color-code-block-bg: var(--yj-code-bg)
+    --color-blockquote-bg: var(--yj-blockquote-bg)
+    --color-blockquote-border: var(--yj-blockquote-border)
+    --color-blockquote-text: var(--yj-blockquote-text)
+    --color-table-header-bg: var(--yj-table-header-bg)
+    --color-table-stripe-bg: var(--yj-table-stripe-bg)
+    --color-table-hover-bg: var(--yj-table-hover-bg)
+    --color-bold-text: var(--yj-bold-text)
+    --img-brightness: var(--yj-img-brightness)
+    --cjk-text-indent: var(--yj-cjk-text-indent)
+    --theme-transition: var(--yj-theme-transition)

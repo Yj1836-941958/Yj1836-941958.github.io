@@ -1,4 +1,16 @@
 <aside id="sidebar"<% if (theme.sidebar === 'bottom'){ %> class="outer"<% } %>>
+  <div class="widget-wrap yj-author-card">
+    <div class="yj-author-widget">
+      <div class="yj-author-avatar">
+        <span class="yj-avatar-text">YJ</span>
+      </div>
+      <div class="yj-author-info">
+        <div class="yj-author-name">YJ</div>
+        <div class="yj-author-bio">热爱编程，专注技术</div>
+        <div class="yj-author-slogan">以代码丈量世界</div>
+      </div>
+    </div>
+  </div>
   <% theme.widgets.forEach(function(widget){ %>
     <%- partial('_widget/' + widget) %>
   <% }) %>
